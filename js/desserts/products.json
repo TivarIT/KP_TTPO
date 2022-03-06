@@ -1,0 +1,34 @@
+[
+	{
+		"id": 1,
+		"title": "Тирамису",
+		"itemsInBox": 4,
+		"weight": 90,
+		"price": 280,
+		"imgSrc": "tiramisu.jpg"
+	},
+	{
+		"id": 2,
+		"title": "Венский штрудель",
+		"itemsInBox": 1,
+		"weight": 1500,
+		"price": 1000,
+		"imgSrc": "shtrudel.jpg"
+	},
+	{
+		"id": 3,
+		"title": "Крем-брюле",
+		"itemsInBox": 6,
+		"weight": 100,
+		"price": 500,
+		"imgSrc": "krem.jpg"
+	},
+	{
+		"id": 4,
+		"title": "Торт «Чёрный лес»",
+		"itemsInBox": 4,
+		"weight": 250,
+		"price": 360,
+		"imgSrc": "tort.jpg"
+	}
+]
