@@ -1,0 +1,34 @@
+[
+	{
+		"id": 1,
+		"title": "Польский белый борщ",
+		"itemsInBox": 1,
+		"weight": 300,
+		"price": 450,
+		"imgSrc": "polBorsh.jpg"
+	},
+	{
+		"id": 2,
+		"title": "Лохикейтто",
+		"itemsInBox": 1,
+		"weight": 300,
+		"price": 400,
+		"imgSrc": "losos.jpg"
+	},
+	{
+		"id": 3,
+		"title": "Чихиртма",
+		"itemsInBox": 1,
+		"weight": 350,
+		"price": 440,
+		"imgSrc": "georgia.jpg"
+	},
+	{
+		"id": 4,
+		"title": "Вишисуаз",
+		"itemsInBox": 1,
+		"weight": 280,
+		"price": 260,
+		"imgSrc": "potato.jpg"
+	}
+]

@@ -1,0 +1,34 @@
+[
+	{
+		"id": 1,
+		"title": "Бефстроганов",
+		"itemsInBox": 1,
+		"weight": 280,
+		"price": 360,
+		"imgSrc": "befstrog.jpg"
+	},
+	{
+		"id": 2,
+		"title": "Курица по-китайски с овощами",
+		"itemsInBox": 1,
+		"weight": 300,
+		"price": 320,
+		"imgSrc": "china.jpg"
+	},
+	{
+		"id": 3,
+		"title": "Котлеты из индейки с соусом беарнез",
+		"itemsInBox": 1,
+		"weight": 340,
+		"price": 400,
+		"imgSrc": "kotleti.jpg"
+	},
+	{
+		"id": 4,
+		"title": "Тикка-масала",
+		"itemsInBox": 1,
+		"weight": 280,
+		"price": 360,
+		"imgSrc": "tiki.jpg"
+	}
+]

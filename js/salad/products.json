@@ -1,0 +1,34 @@
+[
+	{
+		"id": 1,
+		"title": "Салат «Цезарь»",
+		"itemsInBox": 1,
+		"weight": 240,
+		"price": 330,
+		"imgSrc": "ceaser.jpg"
+	},
+	{
+		"id": 2,
+		"title": "Салат «Газапхули»",
+		"itemsInBox": 1,
+		"weight": 220,
+		"price": 320,
+		"imgSrc": "georgia.jpg"
+	},
+	{
+		"id": 3,
+		"title": "Салат из зеленой фасоли с яйцами",
+		"itemsInBox": 1,
+		"weight": 240,
+		"price": 310,
+		"imgSrc": "mexico.jpg"
+	},
+	{
+		"id": 4,
+		"title": "Магрибский салат с кускусом и рукколой",
+		"itemsInBox": 1,
+		"weight": 300,
+		"price": 380,
+		"imgSrc": "magrib.jpg"
+	}
+]
