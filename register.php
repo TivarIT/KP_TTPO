@@ -1,54 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+    session_start();
+    if ($_SESSION['user']) {
+        header('Location: profile.php');
+    }
+?>
 
+<!doctype html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Доставка еды</title>
-    <!-- CSS only -->
+    <title>Авторизация и регистрация</title>
+    <link rel="stylesheet" href="assets/main.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <style>
-        .container {
-            border: 2px solid #ccc;
-            background-color: #eee;
-            border-radius: 5px;
-            padding: 16px;
-            margin: 16px 0
-        }
-
-        .container::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
-
-        .container img {
-            float: left;
-            margin-right: 20px;
-            border-radius: 50%;
-        }
-
-        .container span {
-            font-size: 20px;
-            margin-right: 15px;
-        }
-
-        @media (max-width: 500px) {
-            .container {
-                text-align: center;
-            }
-
-            .container img {
-                margin: auto;
-                float: none;
-                display: block;
-            }
-        }
-    </style>
 </head>
-
-<body>
-    <header>
+<header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Доставка еды</a>
@@ -114,38 +80,34 @@
             </div>
         </nav>
     </header>
-    <center>
-        <h1>Отзовы наших клиентов</h1>
-    </center>
-    <div class="container">
-        <img src="img/reviews/gigachad.jpg" alt="Avatar" style="width:100px">
-        <p><span>Эрнест Халимов</span>Гигачад.</p>
-        <p>Да я слышал про доставку, но зачем кого-то доставать?</p>
-    </div>
+<body>
 
-    <div class="container">
-        <img src="img/reviews/sir.jpg" alt="Avatar" style="width:90px">
-        <p><span>Сэр Pudge</span>Именитый мясник.</p>
-        <p>Пальчики оближешь!</p>
-    </div>
-    <div class="container">
-        <img src="img/reviews/kira.jpg" alt="Avatar" style="width:90px">
-        <p><span>Кира Йошикагэ</span>Мирный чел.</p>
-        <p>Меня зовут Кира Йошикагэ. Мне 33 года. Мой дом находится в северо-восточной части Морио, в районе поместий.
-            Работаю в офисе сети магазинов Kame Yu и домой возвращаюсь, самое позднее, в восемь вечера. Не курю, выпиваю
-            изредка. Ложусь спать в 11 вечера и убеждаюсь, что получаю ровно восемь часов сна, несмотря ни на что. Перед
-            сном я пью тёплое молоко, а также минут двадцать уделяю разминке, поэтому до утра сплю без особых проблем.
-            Утром я просыпаюсь, не чувствуя ни усталости, ни стресса, словно младенец. На медосмотре мне сказали, что
-            никаких проблем нет. Я пытаюсь донести, что я обычный человек, который хочет жить спокойной жизнью. Я не
-            забиваю себе голову проблемами вроде побед или поражений, и не обзавожусь врагами, из-за которых не мог бы
-            уснуть. Я знаю наверняка: в таком способе взаимодействия с обществом и кроется счастье. Хотя, если бы мне
-            пришлось сражаться, я бы никому не проиграл.</p>
-    </div>
-    <div class="container">
-        <img src="img/reviews/jotaro.jpg" alt="Avatar" style="width:90px">
-        <p><span>Джотаро Куджо</span>Любитель дельфинов.</p>
-        <p>Сверху клоун.</p>
-    </div>
+    <!-- Форма регистрации -->
+
+    <form action="vendor/signup.php" method="post" enctype="multipart/form-data">
+        <label>ФИО</label>
+        <input type="text" name="full_name" placeholder="Введите свое полное имя">
+        <label>Логин</label>
+        <input type="text" name="login" placeholder="Введите свой логин">
+        <label>Почта</label>
+        <input type="email" name="email" placeholder="Введите адрес своей почты">
+        <label>Изображение профиля</label>
+        <input type="file" name="avatar">
+        <label>Пароль</label>
+        <input type="password" name="password" placeholder="Введите пароль">
+        <label>Подтверждение пароля</label>
+        <input type="password" name="password_confirm" placeholder="Подтвердите пароль">
+        <button type="submit">Войти</button>
+        <p>
+            У вас уже есть аккаунт? - <a href="/">авторизируйтесь</a>!
+        </p>
+        <?php
+            if ($_SESSION['message']) {
+                echo '<p class="msg"> ' . $_SESSION['message'] . ' </p>';
+            }
+            unset($_SESSION['message']);
+        ?>
+    </form>
     <footer>
         <div class="container">
             <footer class="py-5">
@@ -157,7 +119,8 @@
                             </li>
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Новости</a></li>
                             <li class="nav-item mb-2"><a href="blog.html" class="nav-link p-0 text-muted">Блог</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Отзовы</a></li>
+                            <li class="nav-item mb-2"><a href="reviews.html" class="nav-link p-0 text-muted">Отзовы</a>
+                            </li>
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">О нас</a></li>
                         </ul>
                     </div>
@@ -186,11 +149,8 @@
             </footer>
         </div>
     </footer>
-    <script src="./js/reviews/sound.js"></script>
-    <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 </body>
-
 </html>

@@ -1,22 +1,24 @@
-<!DOCTYPE html>
+<?php
+session_start();
+
+if ($_SESSION['user']) {
+    header('Location: profile.php');
+}
+
+?>
+
+<!doctype html>
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-	<title>Супы</title>
-	<!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/main.css">
-	<link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,400i,700&amp;subset=cyrillic-ext"
-		rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Авторизация и регистрация</title>
+    <link rel="stylesheet" href="assets/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
-
-	<header>
+<header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Доставка еды</a>
@@ -82,82 +84,27 @@
             </div>
         </nav>
     </header>
+    <!-- Форма авторизации -->
+    <div class="container">
+        <form action="vendor/signin.php" method="post">
+            <label>Логин</label>
+            <input type="text" name="login" placeholder="Введите свой логин">
+            <label>Пароль</label>
+            <input type="password" name="password" placeholder="Введите пароль">
+            <button type="submit">Войти</button>
+            <p>
+                У вас нет аккаунта? - <a href="/register.php">зарегистрируйтесь</a>!
+            </p>
+            <?php
+            if ($_SESSION['message']) {
+                echo '<p class="msg"> ' . $_SESSION['message'] . ' </p>';
+            }
+            unset($_SESSION['message']);
+            ?>
+        </form>
+    </div>
 
-	<div class="container mb-5">
-		<div class="row">
-
-			<!-- Товары -->
-			<div class="col-md-8">
-				<div class="row" id="products-container">
-
-				</div>
-			</div>
-
-			<!-- Корзина -->
-			<div class="col-md-4">
-
-				<!-- Корзина -->
-				<div class="card mb-4">
-					<div class="card-body">
-						<h5 class="card-title">Ваш заказ</h4>
-
-							<div data-cart-empty class="alert alert-secondary" role="alert">
-								Корзина пуста
-							</div>
-
-							<!-- cart-wrapper -->
-							<div class="cart-wrapper">
-
-							</div>
-							<!-- // cart-wrapper -->
-
-							<!-- Стоимость заказа -->
-							<div class="cart-total">
-								<p data-cart-delivery class="none">
-									<span class="h5">Доставка:</span>
-									<span class="delivery-cost">250 ₽</span><br>
-									<span class="small">Бесплатно при заказе от 600 ₽</span>
-								</p>
-								<p><span class="h5">Итого:</span>
-									<span class="total-price">0</span>
-									<span class="rouble">₽</span>
-								</p>
-							</div>
-							<!-- // Стоимость заказа -->
-
-					</div>
-
-					<!-- Оформить заказ -->
-					<div id="order-form" class="card-body border-top none">
-						<h5 class="card-title">Оформить заказ</h4>
-							<form>
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Ваш номер телефона">
-								</div>
-								<button type="submit" class="btn btn-primary">Заказать</button>
-							</form>
-					</div>
-					<!-- // Оформить заказ -->
-
-				</div>
-				<!-- // Корзина -->
-
-			</div>
-
-		</div>
-	</div>
-
-	<!-- Подключаем скрипты -->
-
-	<script src="./js/soup/renderProducts.js"></script>
-	<script src="./js/soup/calcCartPrice.js"></script>
-	<script src="./js/soup/toggleCartStatus.js"></script>
-	<script src="./js/soup/counter-02.js"></script>
-	<script src="./js/soup/cart-02.js"></script>
-	<!-- JavaScript Bundle with Popper -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-		crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
 </html>
